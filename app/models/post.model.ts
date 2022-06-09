@@ -27,6 +27,14 @@ const postSchema = new Schema<IPost>(
   }
 );
 
+// eslint-disable-next-line
+postSchema.methods.toJSON = function () {
+  const post = this.toObject();
+  delete post.__v;
+  delete post._id;
+  return post;
+};
+
 const Post = mongoose.model<IPost>("post", postSchema);
 
 export default Post;
