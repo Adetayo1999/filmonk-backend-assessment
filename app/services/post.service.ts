@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Post from "../models/post.model";
 
 const PostService = {
@@ -5,7 +6,8 @@ const PostService = {
     let postError: any = null;
     let response: any;
     try {
-      const post = new Post({ name, age });
+      const aadharID = new mongoose.Types.ObjectId();
+      const post = new Post({ aadhar_id: aadharID, name, age });
       await post.save();
       response = { message: "POST CREATED" };
     } catch (err) {
