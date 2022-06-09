@@ -8,7 +8,7 @@
     "start": "node ./build/server",
     "dev": "nodemon ./app/server.ts",
     "lint": "eslint \"./app/**/*.ts\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",
