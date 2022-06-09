@@ -9,7 +9,8 @@ interface IPost {
 const postSchema = new Schema<IPost>(
   {
     aadhar_id: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      unique: true,
       required: true,
     },
     name: {
