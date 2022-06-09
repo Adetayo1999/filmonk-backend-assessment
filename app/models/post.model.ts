@@ -1,8 +1,17 @@
 import mongoose, { Schema } from "mongoose";
 
-const postSchema = new Schema(
+interface IPost {
+  aadhar_id: Schema.Types.ObjectId;
+  name: string;
+  age: number;
+}
+
+const postSchema = new Schema<IPost>(
   {
-    aadhar_id: Schema.Types.ObjectId,
+    aadhar_id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -17,6 +26,6 @@ const postSchema = new Schema(
   }
 );
 
-const Post = mongoose.model("post", postSchema);
+const Post = mongoose.model<IPost>("post", postSchema);
 
 export default Post;
