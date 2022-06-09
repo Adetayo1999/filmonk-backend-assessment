@@ -1,32 +1,32 @@
 import Post from "../models/post.model";
 
-class PostService {
-  static async createPost(name: string, age: string) {
-    let error: any = null;
+const PostService = {
+  async createPost(name: string, age: number) {
+    let postError: any = null;
     let response: any;
     try {
       const post = new Post({ name, age });
       await post.save();
       response = { message: "POST CREATED" };
     } catch (err) {
-      error = err;
+      postError = err;
     }
 
-    return { error, response };
-  }
+    return { postError, response };
+  },
 
-  static async getPosts() {
-    let error: any = null;
+  async getPosts() {
+    let postError: any = null;
     let response: any;
     try {
       const posts = await Post.find({});
       response = { message: "SUCCESS", posts };
     } catch (err) {
-      error = err;
+      postError = err;
     }
 
-    return { error, response };
-  }
-}
+    return { postError, response };
+  },
+};
 
 export default PostService;
