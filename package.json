@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --project ./app",
+    "build": "tsc --project ./",
     "start": "node ./build/server",
     "dev": "nodemon ./app/server.ts",
     "lint": "eslint \"./app/**/*.ts\"",
